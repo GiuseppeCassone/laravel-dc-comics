@@ -10,7 +10,8 @@
 <body>
 
     <div class="container">
-        <h1>ciao</h1>
+        @yield('index-content')
+        @yield('content')
     </div>
     
 </body>
