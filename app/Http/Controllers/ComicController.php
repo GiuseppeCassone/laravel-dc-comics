@@ -34,7 +34,7 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $this->validation($request->all());
-        
+
         $newComic = new Comic();
 
         $newComic->title = $request->title;
@@ -114,6 +114,10 @@ class ComicController extends Controller
             'type' => 'required|max:30',
             'artists' => 'required',
             'writers' => 'required'
+
+        ], [
+            'max' => 'Il campo :attribute deve avere massimo :max caratteri',
+            'required' => 'Il campo :attribute non è stato inserito',
 
         ])->validate();
     }
