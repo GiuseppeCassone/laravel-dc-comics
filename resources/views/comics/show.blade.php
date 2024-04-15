@@ -1,17 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-<div>
-    <h1>{{$comic->title}}</h1>
-    <img src="{{$comic->thumb}}" alt="">
-
-    <div class="py-5">
-            <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-warning">Modifica</a>
-
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Elimina
-            </button>          
+<h3 class="mb-5">{{$comic->title}}</h3>
+<div class="row">
+    <div class="col-6">
+        <img class="w-100" src="{{$comic->thumb}}" alt="">
+    
+        <div class="py-5">
+                <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-warning">Modifica</a>
+    
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Elimina
+                </button>          
+        </div>
     </div>
+    <div class="col-6">
+        <h5>Info sul fumetto</h5>
+        <hr>
+        <p><strong>Descrizione: </strong>{{ $comic->description }}</p>
+        <hr>
+        <p><strong>Serie: </strong>{{$comic->series}}</p>
+        <hr>
+        <p><strong>Prezzo: </strong>{{$comic->price}}</p>
+    </div>  
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
