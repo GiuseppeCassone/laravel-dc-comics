@@ -110,7 +110,7 @@ class ComicController extends Controller
             'thumb' => 'required',
             'price' => 'required|max:30',
             'series' => 'required|max:255',
-            'sale_date' => 'required',
+            'sale_date' => 'required|date_format:Y-m-d',
             'type' => 'required|max:30',
             'artists' => 'required',
             'writers' => 'required'
@@ -118,6 +118,7 @@ class ComicController extends Controller
         ], [
             'max' => 'Il campo :attribute deve avere massimo :max caratteri',
             'required' => 'Il campo :attribute non è stato inserito',
+            'date_format' => 'Il campo :attribute deve essere nel formato YYYY-MM-DD',
 
         ])->validate();
     }
